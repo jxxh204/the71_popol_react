@@ -8,7 +8,12 @@ li {
 }
 .header{
     position: relative;
-
+    float: left;
+    width: 400px;
+}
+.subHeader {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
 }
 .logo {
     float: left;
@@ -29,10 +34,53 @@ li {
 }
 
 .subMenu {
-    float: left;
-    padding: 0;
+    position: absolute;
+    width: 600px;
+    left: 50%;
+    top: 174px;
+    transform: translateX(-50%);
+    animation-duration: 1s;
+    animation-name:onSubMenu;
 }
+@keyframes onSubMenu {
+    0%{
+        opacity: 0%;
+        top:150px;
+    }
+  
+    100% {
+        opacity: 100%;
+        top:174px;
+    }
+  }
+  .downSubMenu {
+    position: absolute;
+    width: 600px;
+    left: 50%;
+    top: 174px;
+    transform: translateX(-50%);
+    animation-duration: 1s;
+    animation-name:downSubMenu;
+}
+@keyframes downSubMenu {
+    0%{
+        opacity: 100%;
+        top:174px;
+    }
+  
+    100% {
+        opacity: 0%;
+        top:150px;
 
-.subMenu li {
+    }
+  }
+
+.subMenu li , .downSubMenu li {
     margin-left:25px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 33px;
+    width: 118px;
+    padding:8px 0px;
+    float: left;
 }

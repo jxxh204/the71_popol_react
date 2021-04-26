@@ -7,19 +7,22 @@ export default class Header extends Component {
         super(props)
         this.state ={
             menu:['Portfolio','About','Contact'],
-            subMenuDisplay : 'none'
+            subM_Display : 'none',
+            subM_Class : 'subMenu'
         }
         this.setMenu = this.setMenu.bind(this);
         this.onClickMenu = this.onClickMenu.bind(this);
     }
     
     onClickMenu (menu,e) {
-        console.log("click",menu,this.state.subMenuDisplay);
         if(menu === 'Portfolio') {
-            if(this.state.subMenuDisplay === 'none') {
-                this.setState({subMenuDisplay:'block'})
+            if(this.state.subM_Display === 'none') {
+                this.setState({subM_Display:'block',subM_Class: 'subMenu'})
             } else {
-                this.setState({subMenuDisplay:'none'})
+                this.setState({subM_Class: 'downSubMenu'})
+                setTimeout(() => {
+                    this.setState({subM_Display:'none'})
+                }, 1000);
             }
 
         }
@@ -39,16 +42,19 @@ export default class Header extends Component {
 
     render() {
         return <div className="header">
-                    <img className="logo" src={Logo} />
-                    <ul className="menu">
-                        {this.setMenu()}
-                    </ul>
-                    <ul className="subMenu" style={{display:this.state.subMenuDisplay}}>
-                        <li>All</li>
-                        <li>Character</li>
-                        <li>BX Design</li>
-                        <li>Illustration</li>
-                    </ul>
+                    <div className="subHeader">
+                        <img className="logo" src={Logo} />
+                        <ul className="menu">
+                            {this.setMenu()}
+                        </ul>
+                        <ul  className={this.state.subM_Class}
+                        style={{display:this.state.subM_Display}}>
+                            <li>All</li>
+                            <li>Character</li>
+                            <li>BX Design</li>
+                            <li>Illustration</li>
+                        </ul>
+                    </div>
                 </div>
     }
 }
