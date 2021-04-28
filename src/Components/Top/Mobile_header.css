@@ -1,0 +1,72 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style-type: none;
+    float:left;
+}
+.m_header{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100px;
+}
+.m_subHeader {
+    position: absolute;
+    left: 50%; transform: translateX(-50%);
+}
+.m_logo {
+    float: left;
+    clear: both;
+    margin-top: 25px;
+    width: 140px;
+}
+.m_menu {
+    position: absolute;
+    width: 57px;
+    height: 57px;
+    right: 0px;
+    top: -8px;
+    background: #808080;
+}
+.hambug {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 54%;
+    height: 75%;
+    padding: 0px;
+    margin: 0px;
+
+}
+.hambug li {  
+    position: relative;
+    float: left;
+    clear: both;
+    margin-top: 7px;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+}
+.m_menus li {
+    position: relative;
+    float: left;
+    clear: both;
+}
+.m_menus {
+    animation-duration: 1s;
+    animation-name:m_downSubMenu;
+}
+
+@keyframes m_downSubMenu {
+    0%{
+        opacity: 0%;
+        top:150px;
+    }
+  
+    100% {
+        opacity: 100%;
+        top:174px;
+    }
+  }

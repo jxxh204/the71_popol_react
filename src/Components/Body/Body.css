@@ -1,0 +1,50 @@
+.body {
+    position: relative;
+    float: left;
+    clear: both;
+    width: 100%;
+}
+.grid {
+    position: absolute;
+    /* width: 80%; */
+    left: 50%; transform: translateX(-50%);
+}
+
+.container {
+    position: relative;
+    float: left;
+    width: 825px;
+    /* width: 100%; */
+    display: grid;
+    gap: 20px 20px;
+    grid-template-rows: repeat(2, 350px); /* 줄 */
+    grid-template-columns: repeat(2, 1fr); /* 갯수 */
+}
+.item {
+    background-color: gray;
+    border: 1px solid #000000;
+}
+
+@media screen and (min-width:480px) and (max-width:825px) { 
+    /* 태블릿 */
+    /* .grid {
+        width: 80%;
+    } */
+    .container {
+        width: 625px;
+        grid-template-rows: repeat(2, 250px); /* 줄 */
+    }
+}
+@media screen and (max-width:490px) {
+    /* 스맛폰 */
+    .grid {
+        width: 100%;
+    }
+    .container {
+        width: 94%;
+        position: absolute;
+        left: 50%; transform: translateX(-50%);
+        gap: 10px 10px;
+        grid-template-rows: repeat(2, 150px); /* 줄 */
+    }
+}

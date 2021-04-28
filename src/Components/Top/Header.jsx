@@ -7,21 +7,28 @@ export default class Header extends Component {
         super(props)
         this.state ={
             menu:['Portfolio','About','Contact'],
-            subM_Display : 'none',
+            subM_Display : 'block',
             subM_Class : 'subMenu'
         }
+        this.isMenuClick = false;
         this.setMenu = this.setMenu.bind(this);
         this.onClickMenu = this.onClickMenu.bind(this);
     }
     
     onClickMenu (menu,e) {
-        if(menu === 'Portfolio') {
+        if(menu === 'Portfolio' && !this.isMenuClick ) {
             if(this.state.subM_Display === 'none') {
                 this.setState({subM_Display:'block',subM_Class: 'subMenu'})
+                this.isMenuClick = true;
+                setTimeout(() => {
+                    this.isMenuClick = false;
+                }, 1000);
             } else {
+                this.isMenuClick = true;
                 this.setState({subM_Class: 'downSubMenu'})
                 setTimeout(() => {
                     this.setState({subM_Display:'none'})
+                    this.isMenuClick = false;
                 }, 1000);
             }
 
@@ -47,6 +54,8 @@ export default class Header extends Component {
                         <ul className="menu">
                             {this.setMenu()}
                         </ul>
+
+                        {/* submenu */}
                         <ul  className={this.state.subM_Class}
                         style={{display:this.state.subM_Display}}>
                             <li>All</li>
@@ -54,6 +63,9 @@ export default class Header extends Component {
                             <li>BX Design</li>
                             <li>Illustration</li>
                         </ul>
+                        {/* submenu */}
+
+
                     </div>
                 </div>
     }
