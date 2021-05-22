@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Logo from '../../images/Yea-jin.png';
-import './Header.css';
+import styles from './Header.css';
 
 export default class Header extends Component {
     constructor(props){
@@ -8,7 +8,7 @@ export default class Header extends Component {
         this.state ={
             menu:['Portfolio','About','Contact'],
             subM_Display : 'block',
-            subM_Class : 'subMenu'
+            subM_Class : styles.subMenu
         }
         this.isMenuClick = false;
         this.setMenu = this.setMenu.bind(this);
@@ -48,10 +48,10 @@ export default class Header extends Component {
     }
 
     render() {
-        return <div className="header">
-                    <div className="subHeader">
-                        <img className="logo" src={Logo} />
-                        <ul className="menu">
+        return <div className={styles.header}>
+                    <div className={styles.subHeader}>
+                        <img className={styles.logo} src={Logo} />
+                        <ul className={styles.menu}>
                             {this.setMenu()}
                         </ul>
 

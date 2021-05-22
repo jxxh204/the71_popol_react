@@ -20,9 +20,20 @@
     grid-template-rows: repeat(2, 350px); /* 줄 */
     grid-template-columns: repeat(2, 1fr); /* 갯수 */
 }
+
 .item {
     background-color: gray;
     border: 1px solid #000000;
+}
+.item:hover {
+    opacity: 90%;
+}
+
+.popupScreen { 
+    position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+}
+.popupin {
+    position:absolute; top:0; left:0; right:0; bottom:0; margin:auto; min-width:50%; min-height:50%;
 }
 
 @media screen and (min-width:480px) and (max-width:825px) { 
